@@ -1,7 +1,7 @@
 import { Badge } from "@chakra-ui/react";
 import { useColorModeValue } from "./ui/color-mode";
 
-import { FC } from "react";
+import type { FC } from "react";
 
 interface ColoredBadgeProps {
 	children: string;
