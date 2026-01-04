@@ -1,8 +1,9 @@
 import { createContext, useContext } from "react";
 import type { AppState, FCWithChildren } from "./types";
 import { type Updater, useImmer } from "use-immer";
+import { events } from "./events";
 
-const defaultState: AppState = { view: "calendar" };
+const defaultState: AppState = { view: "calendar", events };
 
 const AppContext = createContext<{
 	state: AppState;
