@@ -1,10 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import treeShakeable from "rollup-plugin-tree-shakeable";
 
 // https://vite.dev/config/
 export default defineConfig({
-	plugins: [react(), treeShakeable()],
+	plugins: [react()],
 	// required for github pages
 	base: "/race-calendar/",
 	server: {
