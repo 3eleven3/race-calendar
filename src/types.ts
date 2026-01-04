@@ -3,6 +3,7 @@ import type { Event } from "./events";
 
 export type AppState = {
 	view: "calendar" | "list";
+	isMobile: boolean;
 	readonly events: Event[];
 };
 

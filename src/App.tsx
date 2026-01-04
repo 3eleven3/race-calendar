@@ -1,7 +1,6 @@
 import { Container, Box, Heading, VStack, Flex } from "@chakra-ui/react";
 import { useAppState } from "./state";
 import { ColorModeButton } from "./components/ui/color-mode";
-import "./App.css";
 import { Calendar } from "./components/calendar";
 import { List } from "./components/list";
 import { ViewButton } from "./components/view-button";
@@ -34,7 +33,7 @@ export const App = () => {
 						<div
 							style={{
 								position: "absolute",
-								top: "1rem",
+								bottom: "1rem",
 								right: "1rem",
 							}}
 						>

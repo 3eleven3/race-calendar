@@ -1,9 +1,10 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect } from "react";
 import type { AppState, FCWithChildren } from "./types";
 import { type Updater, useImmer } from "use-immer";
 import { events } from "./events";
+import { useMediaQuery } from "usehooks-ts";
 
-const defaultState: AppState = { view: "calendar", events };
+const defaultState: AppState = { view: "calendar", events, isMobile: false };
 
 const AppContext = createContext<{
 	state: AppState;
@@ -16,6 +17,14 @@ const AppContext = createContext<{
 
 export const AppProvider: FCWithChildren = (props) => {
 	const [state, setState] = useImmer<AppState>(defaultState);
+
+	const isMobile = useMediaQuery("(max-width: 768px)");
+
+	useEffect(() => {
+		setState((draft) => {
+			draft.isMobile = isMobile;
+		});
+	}, [isMobile, setState]);
 
 	return (
 		<AppContext.Provider value={{ state, setState }}>
