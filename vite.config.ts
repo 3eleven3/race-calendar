@@ -5,7 +5,8 @@ import treeShakeable from "rollup-plugin-tree-shakeable";
 // https://vite.dev/config/
 export default defineConfig({
 	plugins: [react(), treeShakeable()],
-	base: "/",
+	// required for github pages
+	base: "/race-calendar/",
 	server: {
 		host: "0.0.0.0",
 		port: 5000,
