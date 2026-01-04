@@ -1,9 +1,9 @@
-import { useState } from "react";
 import "./App.css";
 import { Button, HStack } from "@chakra-ui/react";
+import { useAppState } from "./state";
 
 export const App = () => {
-	const [count, setCount] = useState(0);
+	const { state } = useAppState();
 
 	return (
 		<HStack>
