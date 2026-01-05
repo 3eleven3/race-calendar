@@ -222,86 +222,87 @@ export const Calendar: FC = () => {
         }
 
         return (
-                <VStack gap={{ base: 4, md: 6 }} align="stretch">
-                        <Box>
-                                <HStack
-                                        justify="center"
-                                        mb={{ base: 2, md: 4 }}
-                                >
-                                        <IconButton
-                                                aria-label="Previous month"
-                                                onClick={handlePreviousMonth}
-                                                variant="ghost"
+                <Box maxW="800px" mx="auto" w="100%">
+                        <VStack gap={{ base: 4, md: 6 }} align="stretch">
+                                <Box>
+                                        <HStack
+                                                justify="center"
+                                                mb={{ base: 2, md: 4 }}
+                                        >
+                                                <IconButton
+                                                        aria-label="Previous month"
+                                                        onClick={handlePreviousMonth}
+                                                        variant="ghost"
+                                                        size={{ base: "sm", md: "md" }}
+                                                >
+                                                        <LuChevronLeft />
+                                                </IconButton>
+                                                <Button
+                                                        size="xs"
+                                                        variant="outline"
+                                                        onClick={handleToday}
+                                                        mx={2}
+                                                >
+                                                        Today
+                                                </Button>
+                                                <IconButton
+                                                        aria-label="Next month"
+                                                        onClick={handleNextMonth}
+                                                        variant="ghost"
+                                                        size={{ base: "sm", md: "md" }}
+                                                >
+                                                        <LuChevronRight />
+                                                </IconButton>
+                                        </HStack>
+                                        <Heading
                                                 size={{ base: "sm", md: "md" }}
+                                                letterSpacing="tight"
+                                                textAlign="center"
+                                                mb={{ base: 2, md: 4 }}
                                         >
-                                                <LuChevronLeft />
-                                        </IconButton>
-                                        <Button
-                                                size="xs"
-                                                variant="outline"
-                                                onClick={handleToday}
-                                                mx={2}
-                                        >
-                                                Today
-                                        </Button>
-                                        <IconButton
-                                                aria-label="Next month"
-                                                onClick={handleNextMonth}
-                                                variant="ghost"
-                                                size={{ base: "sm", md: "md" }}
-                                        >
-                                                <LuChevronRight />
-                                        </IconButton>
-                                </HStack>
-                                <Heading
-                                        size={{ base: "sm", md: "md" }}
-                                        letterSpacing="tight"
-                                        textAlign="center"
-                                        mb={{ base: 2, md: 4 }}
+                                                {monthName}
+                                        </Heading>
+                                        <Separator opacity={0.5} />
+                                </Box>
+                                <Grid
+                                        templateColumns="repeat(7, 1fr)"
+                                        gap={{ base: 1, md: 2 }}
                                 >
-                                        {monthName}
-                                </Heading>
-                                <Separator opacity={0.5} />
-                        </Box>
-                        <Grid
-                                templateColumns="repeat(7, 1fr)"
-                                gap={{ base: 1, md: 2 }}
-                        >
-                                {/* Week day headers */}
-                                {weekDays.map((day) => (
-                                        <Center
-                                                key={day}
-                                                fontWeight="bold"
-                                                py={2}
-                                                fontSize={{
-                                                        base: "xs",
-                                                        md: "sm",
-                                                }}
-                                        >
-                                                {state.isMobile
-                                                        ? day.charAt(0)
-                                                        : day}
-                                        </Center>
-                                ))}
-                                {/* Calendar days */}
-                                {calendarDays.map((day) => {
-                                        const isDisplayMonth =
-                                                day.getMonth() ===
-                                                calendarState.displayMonth;
-                                        const isToday =
-                                                day.toDateString() ===
-                                                today.toDateString();
-                                        const dayEvents =
-                                                eventsByDate.get(
-                                                        day.toDateString(),
-                                                ) || [];
+                                        {/* Week day headers */}
+                                        {weekDays.map((day) => (
+                                                <Center
+                                                        key={day}
+                                                        fontWeight="bold"
+                                                        py={2}
+                                                        fontSize={{
+                                                                base: "xs",
+                                                                md: "sm",
+                                                        }}
+                                                >
+                                                        {state.isMobile
+                                                                ? day.charAt(0)
+                                                                : day}
+                                                </Center>
+                                        ))}
+                                        {/* Calendar days */}
+                                        {calendarDays.map((day) => {
+                                                const isDisplayMonth =
+                                                        day.getMonth() ===
+                                                        calendarState.displayMonth;
+                                                const isToday =
+                                                        day.toDateString() ===
+                                                        today.toDateString();
+                                                const dayEvents =
+                                                        eventsByDate.get(
+                                                                day.toDateString(),
+                                                        ) || [];
 
-                                        return (
-                                                <Box
-                                                        key={day.toISOString()}
-                                                        flex="1"
-                                                        aspectRatio="1 / 1.2"
-                                                        p={{ base: 1, md: 2 }}
+                                                return (
+                                                        <Box
+                                                                key={day.toISOString()}
+                                                                flex="1"
+                                                                aspectRatio="1 / 1"
+                                                                p={{ base: 1, md: 2 }}
                                                         border="1px solid"
                                                         borderColor={
                                                                 state.isMobile &&
@@ -439,5 +440,6 @@ export const Calendar: FC = () => {
                                 })}
                         </Grid>
                 </VStack>
-        );
+        </Box>
+);
 };
