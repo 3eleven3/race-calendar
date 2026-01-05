@@ -9,6 +9,9 @@ export type Event = {
 	going: string[];
 };
 
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+
 const events: Event[] = [
 	{
 		name: "Wild Goose",
@@ -38,7 +41,8 @@ const events: Event[] = [
 		url: "https://www.sassquadtrailrunning.com/squatchywaska",
 		going: ["Emma C"],
 	},
-];
+	// remove events that are in the past
+].filter((event) => event.date >= today);
 
 // sort events by date
 events.sort((a, b) => a.date.getTime() - b.date.getTime());

@@ -23,30 +23,58 @@ export const App = () => {
                                 _dark: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1e1b4b 100%)",
                         }}
                 >
-                        <Container w="100%" py={{ base: 4, md: 10 }} px={{ base: 2, md: 4 }}>
-                                <VStack gap={{ base: 4, md: 8 }} align="stretch">
+                        <Container
+                                w="100%"
+                                py={{ base: 4, md: 10 }}
+                                px={{ base: 2, md: 4 }}
+                        >
+                                <VStack
+                                        gap={{ base: 4, md: 8 }}
+                                        align="stretch"
+                                >
                                         <Box
                                                 textAlign="center"
                                                 p={{ base: 4, md: 8 }}
                                                 border="1px solid"
-                                                borderColor={{ base: "gray.200", _dark: "whiteAlpha.200" }}
+                                                borderColor={{
+                                                        base: "gray.200",
+                                                        _dark: "whiteAlpha.200",
+                                                }}
                                                 borderRadius="2xl"
-                                                bg={{ base: "white", _dark: "gray.900" }}
+                                                bg={{
+                                                        base: "white",
+                                                        _dark: "gray.900",
+                                                }}
                                                 shadow="xl"
                                                 position="relative"
                                         >
-                                                <VStack gap={{ base: 4, md: 6 }} align="stretch">
+                                                <VStack
+                                                        gap={{ base: 4, md: 6 }}
+                                                        align="stretch"
+                                                >
                                                         <Heading
-                                                                size={{ base: "xl", md: "3xl" }}
+                                                                size={{
+                                                                        base: "xl",
+                                                                        md: "3xl",
+                                                                }}
                                                                 letterSpacing="tight"
                                                                 display="flex"
                                                                 justifyContent="center"
                                                                 alignItems="center"
                                                                 gap="0"
                                                                 transition="color 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)"
-                                                                color={prefix === "K" ? "blue.600" : "orange.500"}
+                                                                color={
+                                                                        prefix ===
+                                                                        "K"
+                                                                                ? "blue.600"
+                                                                                : "orange.500"
+                                                                }
                                                                 _dark={{
-                                                                        color: prefix === "K" ? "blue.400" : "orange.400",
+                                                                        color:
+                                                                                prefix ===
+                                                                                "K"
+                                                                                        ? "blue.400"
+                                                                                        : "orange.400",
                                                                 }}
                                                         >
                                                                 <Box
@@ -57,18 +85,33 @@ export const App = () => {
                                                                         width="0.8em"
                                                                         height="1.2em"
                                                                         transition="all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)"
-                                                                        transform={prefix === "K" ? "rotate(0deg) scale(1)" : "rotate(360deg) scale(1)"}
-                                                                        textShadow={prefix === "K" ? "0 0 10px rgba(59, 130, 246, 0.3)" : "0 0 10px rgba(249, 115, 22, 0.3)"}
-                                                                        marginRight={prefix === "K" ? "0" : "0.1em"}
+                                                                        transform={
+                                                                                prefix ===
+                                                                                "K"
+                                                                                        ? "rotate(0deg) scale(1)"
+                                                                                        : "rotate(360deg) scale(1)"
+                                                                        }
+                                                                        textShadow={
+                                                                                prefix ===
+                                                                                "K"
+                                                                                        ? "0 0 10px rgba(59, 130, 246, 0.3)"
+                                                                                        : "0 0 10px rgba(249, 115, 22, 0.3)"
+                                                                        }
                                                                 >
                                                                         {prefix}
                                                                 </Box>
                                                                 <Box
                                                                         as="span"
                                                                         transition="text-shadow 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)"
-                                                                        textShadow={prefix === "K" ? "0 0 10px rgba(59, 130, 246, 0.1)" : "0 0 10px rgba(249, 115, 22, 0.1)"}
+                                                                        textShadow={
+                                                                                prefix ===
+                                                                                "K"
+                                                                                        ? "0 0 10px rgba(59, 130, 246, 0.1)"
+                                                                                        : "0 0 10px rgba(249, 115, 22, 0.1)"
+                                                                        }
                                                                 >
-                                                                        RC Race Calendar
+                                                                        RC Race
+                                                                        Calendar
                                                                 </Box>
                                                         </Heading>
                                                         <div
@@ -85,9 +128,15 @@ export const App = () => {
                                         <Box
                                                 p={{ base: 3, md: 8 }}
                                                 border="1px solid"
-                                                borderColor={{ base: "gray.200", _dark: "whiteAlpha.200" }}
+                                                borderColor={{
+                                                        base: "gray.200",
+                                                        _dark: "whiteAlpha.200",
+                                                }}
                                                 borderRadius="2xl"
-                                                bg={{ base: "whiteAlpha.950", _dark: "gray.900" }}
+                                                bg={{
+                                                        base: "whiteAlpha.950",
+                                                        _dark: "gray.900",
+                                                }}
                                                 shadow="xl"
                                         >
                                                 <List />
