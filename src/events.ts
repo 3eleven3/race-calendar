@@ -12,13 +12,13 @@ export type Event = {
 const today = new Date();
 today.setHours(0, 0, 0, 0);
 
-const events: Event[] = [
+const events: Event[] = ([
 	{
 		name: "Wild Goose",
 		date: new Date("2026-9-19"),
 		state: "NJ",
 		city: "Wawayanda State Park",
-		type: "trail",
+		type: "trail" as const,
 		distances: [
 			"36 hours",
 			"100 miles",
@@ -36,13 +36,23 @@ const events: Event[] = [
 		date: new Date("2026-4-25"),
 		state: "NY",
 		city: "Minnewaska State Preserve",
-		type: "trail",
+		type: "trail" as const,
 		distances: ["25 km"],
 		url: "https://www.sassquadtrailrunning.com/squatchywaska",
 		going: ["Emma C"],
 	},
+	{
+		name: "Richmond Marathon",
+		date: new Date("2026-11-14"),
+		state: "VA",
+		city: "Richmond",
+		type: "road" as const,
+		distances: ["26.2 miles"],
+		url: "https://www.richmondmarathon.com/",
+		going: ["Kelly F", "Allison D"],
+	},
 	// remove events that are in the past
-].filter((event) => event.date >= today);
+]).filter((event) => event.date >= today);
 
 // sort events by date
 events.sort((a, b) => a.date.getTime() - b.date.getTime());
