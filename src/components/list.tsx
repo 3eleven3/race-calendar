@@ -24,11 +24,14 @@ export const List: FC = () => {
                                                 {!state.isMobile && (
                                                         <Timeline.Content width="auto">
                                                                 <Timeline.Title whiteSpace="nowrap">
-                                                                        {event.date.toLocaleDateString("en-US", {
-                                                                                month: "short",
-                                                                                day: "numeric",
-                                                                                year: "numeric",
-                                                                        })}
+                                                                        {event.date.toLocaleDateString(
+                                                                                "en-US",
+                                                                                {
+                                                                                        month: "short",
+                                                                                        day: "numeric",
+                                                                                        year: "numeric",
+                                                                                },
+                                                                        )}
                                                                 </Timeline.Title>
                                                         </Timeline.Content>
                                                 )}
@@ -36,27 +39,52 @@ export const List: FC = () => {
                                                         <Timeline.Separator />
                                                         <Timeline.Indicator>
                                                                 <Icon fontSize="md">
-                                                                        {event.type === "road" ? <TbRoad /> : <LuMountain />}
+                                                                        {event.type ===
+                                                                        "road" ? (
+                                                                                <TbRoad />
+                                                                        ) : (
+                                                                                <LuMountain />
+                                                                        )}
                                                                 </Icon>
                                                         </Timeline.Indicator>
                                                 </Timeline.Connector>
                                                 <Timeline.Content>
-                                                        <Timeline.Title fontSize={{ base: "md", md: "lg" }} fontWeight="bold">
+                                                        <Timeline.Title
+                                                                fontSize={{
+                                                                        base: "md",
+                                                                        md: "lg",
+                                                                }}
+                                                                fontWeight="bold"
+                                                        >
                                                                 {event.name}
                                                         </Timeline.Title>
                                                         {state.isMobile && (
-                                                                <Timeline.Description fontSize="xs" color="fg.muted" mb={1}>
-                                                                        {event.date.toLocaleDateString("en-US", {
-                                                                                month: "short",
-                                                                                day: "numeric",
-                                                                                year: "numeric",
-                                                                        })}
+                                                                <Timeline.Description
+                                                                        fontSize="xs"
+                                                                        color="fg.muted"
+                                                                        mb={1}
+                                                                >
+                                                                        {event.date.toLocaleDateString(
+                                                                                "en-US",
+                                                                                {
+                                                                                        month: "short",
+                                                                                        day: "numeric",
+                                                                                        year: "numeric",
+                                                                                },
+                                                                        )}
                                                                 </Timeline.Description>
                                                         )}
-                                                        <EventInfo event={event} showTitle={false} />
+                                                        <EventInfo
+                                                                event={event}
+                                                                showTitle={
+                                                                        false
+                                                                }
+                                                        />
                                                 </Timeline.Content>
                                         </Timeline.Item>
-                                        {index !== state.events.length - 1 && <Timeline.Connector />}
+                                        {index !== state.events.length - 1 && (
+                                                <Timeline.Connector />
+                                        )}
                                 </Fragment>
                         ))}
                 </Timeline.Root>

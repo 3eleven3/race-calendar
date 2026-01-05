@@ -168,7 +168,8 @@ export const Calendar: FC = () => {
                                         return (
                                                 <Box
                                                         key={day.toISOString()}
-                                                        minH={{ base: "60px", md: "120px" }}
+                                                        flex="1"
+                                                        aspectRatio="1 / 1.2"
                                                         p={{ base: 1, md: 2 }}
                                                         border="1px solid"
                                                         borderColor={{
