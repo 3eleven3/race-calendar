@@ -13,7 +13,7 @@ import {
         IconButton,
         Card,
 } from "@chakra-ui/react";
-import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
+import { LuChevronLeft, LuChevronRight, LuMountain } from "react-icons/lu";
 import { useImmer } from "use-immer";
 import { useAppState } from "../state";
 import type { Event } from "../events";
@@ -272,11 +272,14 @@ export const Calendar: FC = () => {
                                                                                 dayEvents.length > 0 && (
                                                                                         <Center>
                                                                                                 <Box
-                                                                                                        w="6px"
-                                                                                                        h="6px"
-                                                                                                        borderRadius="full"
-                                                                                                        bg={isToday ? "blue.500" : "gray.400"}
-                                                                                                />
+                                                                                                        p={1.5}
+                                                                                                        borderRadius="md"
+                                                                                                        bg={isToday ? "blue.500" : "gray.100"}
+                                                                                                        color={isToday ? "white" : "gray.600"}
+                                                                                                        boxShadow="sm"
+                                                                                                >
+                                                                                                        <LuMountain size="14px" />
+                                                                                                </Box>
                                                                                         </Center>
                                                                                 )
                                                                         ) : (
