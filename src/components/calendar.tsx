@@ -26,10 +26,12 @@ export const Calendar: FC = () => {
                 displayMonth: number;
                 displayYear: number;
                 selectedEvent: null | Event;
+                selectedDay: string | null;
         }>({
                 displayMonth: new Date().getMonth(),
                 displayYear: new Date().getFullYear(),
                 selectedEvent: null,
+                selectedDay: null,
         });
 
         const today = new Date();
@@ -110,16 +112,74 @@ export const Calendar: FC = () => {
                                 <Button
                                         mb={4}
                                         variant="outline"
+                                        size={state.isMobile ? "sm" : "md"}
                                         onClick={() => {
                                                 setCalendarState((draft) => {
                                                         draft.selectedEvent = null;
                                                 });
                                         }}
                                 >
-                                        Back to Calendar
+                                        Back to {calendarState.selectedDay ? "Day View" : "Calendar"}
                                 </Button>
                                 <EventInfo event={calendarState.selectedEvent} showTitle={true} />
                         </>
+                );
+        }
+
+        if (state.isMobile && calendarState.selectedDay) {
+                const dayEvents = eventsByDate.get(calendarState.selectedDay) || [];
+                const selectedDate = new Date(calendarState.selectedDay);
+                return (
+                        <VStack gap={4} align="stretch">
+                                <HStack justify="space-between">
+                                        <Heading size="md">
+                                                {selectedDate.toLocaleDateString("en-US", {
+                                                        month: "short",
+                                                        day: "numeric",
+                                                        year: "numeric",
+                                                })}
+                                        </Heading>
+                                        <Button
+                                                variant="ghost"
+                                                size="sm"
+                                                onClick={() => {
+                                                        setCalendarState((draft) => {
+                                                                draft.selectedDay = null;
+                                                        });
+                                                }}
+                                        >
+                                                Back to Calendar
+                                        </Button>
+                                </HStack>
+                                <Separator />
+                                {dayEvents.length > 0 ? (
+                                        <VStack gap={4} align="stretch">
+                                                {dayEvents.map((event) => (
+                                                        <Box
+                                                                key={event.name}
+                                                                p={4}
+                                                                border="1px solid"
+                                                                borderColor={{ base: "gray.200", _dark: "whiteAlpha.200" }}
+                                                                borderRadius="lg"
+                                                                onClick={() => {
+                                                                        setCalendarState((draft) => {
+                                                                                draft.selectedEvent = event;
+                                                                        });
+                                                                }}
+                                                        >
+                                                                <Heading size="sm" mb={2}>
+                                                                        {event.name}
+                                                                </Heading>
+                                                                <EventInfo event={event} showTitle={false} />
+                                                        </Box>
+                                                ))}
+                                        </VStack>
+                                ) : (
+                                        <Center py={10}>
+                                                <Text color="fg.muted">No events for this day</Text>
+                                        </Center>
+                                )}
+                        </VStack>
                 );
         }
 
@@ -172,11 +232,20 @@ export const Calendar: FC = () => {
                                                         aspectRatio="1 / 1.2"
                                                         p={{ base: 1, md: 2 }}
                                                         border="1px solid"
-                                                        borderColor={{
-                                                                base: "gray.200",
-                                                                _dark: "whiteAlpha.200",
-                                                        }}
+                                                        borderColor={
+                                                                state.isMobile && calendarState.selectedDay === day.toDateString()
+                                                                        ? { base: "blue.500", _dark: "blue.400" }
+                                                                        : { base: "gray.200", _dark: "whiteAlpha.200" }
+                                                        }
                                                         borderRadius="lg"
+                                                        cursor="pointer"
+                                                        onClick={() => {
+                                                                if (state.isMobile) {
+                                                                        setCalendarState((draft) => {
+                                                                                draft.selectedDay = day.toDateString();
+                                                                        });
+                                                                }
+                                                        }}
                                                         bg={
                                                                 isToday
                                                                         ? { base: "blue.50", _dark: "blue.900/20" }
@@ -198,18 +267,31 @@ export const Calendar: FC = () => {
                                                                 >
                                                                         {day.getDate()}
                                                                 </Text>
-                                                                <VStack gap={1} flex={1} align="stretch">
-                                                                        {dayEvents.map((event) => (
-                                                                                <EventButton
-                                                                                        key={event.name}
-                                                                                        event={event}
-                                                                                        onClick={() => {
-                                                                                                setCalendarState((draft) => {
-                                                                                                        draft.selectedEvent = event;
-                                                                                                });
-                                                                                        }}
-                                                                                />
-                                                                        ))}
+                                                                <VStack gap={1} flex={1} align="stretch" justify="center">
+                                                                        {state.isMobile ? (
+                                                                                dayEvents.length > 0 && (
+                                                                                        <Center>
+                                                                                                <Box
+                                                                                                        w="6px"
+                                                                                                        h="6px"
+                                                                                                        borderRadius="full"
+                                                                                                        bg={isToday ? "blue.500" : "gray.400"}
+                                                                                                />
+                                                                                        </Center>
+                                                                                )
+                                                                        ) : (
+                                                                                dayEvents.map((event) => (
+                                                                                        <EventButton
+                                                                                                key={event.name}
+                                                                                                event={event}
+                                                                                                onClick={() => {
+                                                                                                        setCalendarState((draft) => {
+                                                                                                                draft.selectedEvent = event;
+                                                                                                        });
+                                                                                                }}
+                                                                                        />
+                                                                                ))
+                                                                        )}
                                                                 </VStack>
                                                         </VStack>
                                                 </Box>
