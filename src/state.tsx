@@ -4,7 +4,7 @@ import { type Updater, useImmer } from "use-immer";
 import { events } from "./events";
 import { useMediaQuery } from "usehooks-ts";
 
-const defaultState: AppState = { view: "calendar", events, isMobile: false };
+const defaultState: AppState = { view: "list", events, isMobile: false };
 
 const AppContext = createContext<{
 	state: AppState;

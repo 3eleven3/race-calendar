@@ -9,20 +9,27 @@ import {
 	Box,
 	Button,
 	Center,
-	Tooltip,
-	Portal,
 	HStack,
 	IconButton,
+	Card,
 } from "@chakra-ui/react";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import { useImmer } from "use-immer";
 import { useAppState } from "../state";
+import type { Event } from "../events";
+import { EventButton } from "./event-button";
+import { EventInfo } from "./event-info";
 
 export const Calendar: FC = () => {
 	const { state } = useAppState();
-	const [calendarState, setCalendarState] = useImmer({
+	const [calendarState, setCalendarState] = useImmer<{
+		displayMonth: number;
+		displayYear: number;
+		selectedEvent: null | Event;
+	}>({
 		displayMonth: new Date().getMonth(),
 		displayYear: new Date().getFullYear(),
+		selectedEvent: null,
 	});
 
 	const today = new Date();
@@ -97,6 +104,25 @@ export const Calendar: FC = () => {
 		});
 	};
 
+	if (calendarState.selectedEvent) {
+		return (
+			<>
+				<Button
+					mb={4}
+					variant="outline"
+					onClick={() => {
+						setCalendarState((draft) => {
+							draft.selectedEvent = null;
+						});
+					}}
+				>
+					Back to Calendar
+				</Button>
+				<EventInfo event={calendarState.selectedEvent} showTitle={true} />
+			</>
+		);
+	}
+
 	return (
 		<VStack gap={6} align="stretch">
 			<Box>
@@ -126,7 +152,6 @@ export const Calendar: FC = () => {
 				</Heading>
 				<Separator opacity={0.5} />
 			</Box>
-
 			<Grid templateColumns="repeat(7, 1fr)" gap={2}>
 				{/* Week day headers */}
 				{weekDays.map((day) => (
@@ -134,7 +159,6 @@ export const Calendar: FC = () => {
 						{day}
 					</Center>
 				))}
-
 				{/* Calendar days */}
 				{calendarDays.map((day) => {
 					const isDisplayMonth = day.getMonth() === calendarState.displayMonth;
@@ -175,41 +199,15 @@ export const Calendar: FC = () => {
 								</Text>
 								<VStack gap={1} flex={1} align="stretch">
 									{dayEvents.map((event) => (
-										<Tooltip.Root key={event.name}>
-											<Tooltip.Trigger asChild>
-												<Button
-													asChild
-													size="xs"
-													variant="solid"
-													height="auto"
-													fontSize="xs"
-													py={1}
-													overflow="hidden"
-													whiteSpace="normal"
-													textAlign="left"
-												>
-													<a
-														href={event.url}
-														target="_blank"
-														style={{
-															display: "block",
-															width: "100%",
-															overflow: "hidden",
-															textOverflow: "ellipsis",
-															whiteSpace: "nowrap",
-														}}
-													>
-														{event.name}
-													</a>
-												</Button>
-											</Tooltip.Trigger>
-											<Portal>
-												<Tooltip.Content>
-													<Tooltip.Arrow />
-													{event.name}
-												</Tooltip.Content>
-											</Portal>
-										</Tooltip.Root>
+										<EventButton
+											key={event.name}
+											event={event}
+											onClick={() => {
+												setCalendarState((draft) => {
+													draft.selectedEvent = event;
+												});
+											}}
+										/>
 									))}
 								</VStack>
 							</VStack>

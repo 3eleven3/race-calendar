@@ -13,21 +13,18 @@ export const App = () => {
 			<VStack gap={8} align="stretch">
 				<Box
 					textAlign="center"
-					py={8}
-					bg={{ base: "blue.50", _dark: "blue.900/20" }}
-					borderRadius="2xl"
+					p={8}
 					border="1px solid"
-					borderColor={{ base: "blue.100", _dark: "blue.800/30" }}
+					borderColor={{ base: "gray.200", _dark: "whiteAlpha.200" }}
+					borderRadius="2xl"
+					bg={{ base: "white", _dark: "whiteAlpha.50" }}
+					shadow="sm"
 					style={{
 						position: "relative",
 					}}
 				>
 					<VStack gap={6} align="stretch">
-						<Heading
-							size="3xl"
-							color={{ base: "blue.600", _dark: "blue.400" }}
-							letterSpacing="tight"
-						>
+						<Heading size="3xl" letterSpacing="tight">
 							KRC/ORC Race Calendar
 						</Heading>
 						<div
