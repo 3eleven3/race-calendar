@@ -135,7 +135,7 @@ export const Calendar: FC = () => {
                 );
         }
 
-        if (state.isMobile && calendarState.selectedDay) {
+        if (calendarState.selectedDay) {
                 const dayEvents =
                         eventsByDate.get(calendarState.selectedDay) || [];
                 const selectedDate = new Date(calendarState.selectedDay);
@@ -180,6 +180,11 @@ export const Calendar: FC = () => {
                                                                         _dark: "whiteAlpha.200",
                                                                 }}
                                                                 borderRadius="lg"
+                                                                cursor="pointer"
+                                                                _hover={{
+                                                                        bg: "gray.50",
+                                                                        _dark: "whiteAlpha.100",
+                                                                }}
                                                                 onClick={() => {
                                                                         setCalendarState(
                                                                                 (
@@ -320,18 +325,14 @@ export const Calendar: FC = () => {
                                                         borderRadius="lg"
                                                         cursor="pointer"
                                                         onClick={() => {
-                                                                if (
-                                                                        state.isMobile
-                                                                ) {
-                                                                        setCalendarState(
-                                                                                (
-                                                                                        draft,
-                                                                                ) => {
-                                                                                        draft.selectedDay =
-                                                                                                day.toDateString();
-                                                                                },
-                                                                        );
-                                                                }
+                                                                setCalendarState(
+                                                                        (
+                                                                                draft,
+                                                                        ) => {
+                                                                                draft.selectedDay =
+                                                                                        day.toDateString();
+                                                                        },
+                                                                );
                                                         }}
                                                         bg={
                                                                 isToday
