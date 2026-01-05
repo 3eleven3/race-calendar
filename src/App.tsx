@@ -12,8 +12,8 @@ export const App = () => {
                 <Box
                         minH="100vh"
                         bg={{
-                                base: "radial-gradient(circle at 50% 50%, #fdfbfb 0%, #ebedee 100%)",
-                                _dark: "gray.950",
+                                base: "linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #e0e7ff 100%)",
+                                _dark: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1e1b4b 100%)",
                         }}
                 >
                         <Container w="100%" py={{ base: 4, md: 10 }} px={{ base: 2, md: 4 }}>
