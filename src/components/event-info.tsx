@@ -36,6 +36,8 @@ export const EventInfo: FC<{
                                                                 ? "xs"
                                                                 : "sm"
                                                 }
+                                                color={{ base: "gray.800", _dark: "gray.200" }}
+                                                fontWeight="bold"
                                         >
                                                 Location
                                         </DataList.ItemLabel>
@@ -57,6 +59,8 @@ export const EventInfo: FC<{
                                                                 ? "xs"
                                                                 : "sm"
                                                 }
+                                                color={{ base: "gray.800", _dark: "gray.200" }}
+                                                fontWeight="bold"
                                         >
                                                 Type
                                         </DataList.ItemLabel>
@@ -78,6 +82,8 @@ export const EventInfo: FC<{
                                                                 ? "xs"
                                                                 : "sm"
                                                 }
+                                                color={{ base: "gray.800", _dark: "gray.200" }}
+                                                fontWeight="bold"
                                         >
                                                 Distances
                                         </DataList.ItemLabel>
@@ -106,6 +112,8 @@ export const EventInfo: FC<{
                                                                 ? "xs"
                                                                 : "sm"
                                                 }
+                                                color={{ base: "gray.800", _dark: "gray.200" }}
+                                                fontWeight="bold"
                                         >
                                                 Attending
                                         </DataList.ItemLabel>

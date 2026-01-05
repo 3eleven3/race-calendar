@@ -24,9 +24,8 @@ export const App = () => {
                                                 border="1px solid"
                                                 borderColor={{ base: "gray.200", _dark: "whiteAlpha.200" }}
                                                 borderRadius="2xl"
-                                                bg={{ base: "whiteAlpha.900", _dark: "whiteAlpha.100" }}
+                                                bg={{ base: "white", _dark: "gray.900" }}
                                                 shadow="xl"
-                                                backdropFilter="blur(10px)"
                                                 style={{
                                                         position: "relative",
                                                 }}
@@ -52,9 +51,8 @@ export const App = () => {
                                                 border="1px solid"
                                                 borderColor={{ base: "gray.200", _dark: "whiteAlpha.200" }}
                                                 borderRadius="2xl"
-                                                bg={{ base: "whiteAlpha.900", _dark: "whiteAlpha.100" }}
+                                                bg={{ base: "whiteAlpha.950", _dark: "gray.900" }}
                                                 shadow="xl"
-                                                backdropFilter="blur(10px)"
                                         >
                                                 {state.view === "calendar" && <Calendar />}
                                                 {state.view === "list" && <List />}
