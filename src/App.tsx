@@ -39,32 +39,36 @@ export const App = () => {
                                                         <Heading
                                                                 size={{ base: "xl", md: "3xl" }}
                                                                 letterSpacing="tight"
-                                                                color="gray.800"
-                                                                _dark={{ color: "whiteAlpha.900" }}
                                                                 display="flex"
                                                                 justifyContent="center"
                                                                 alignItems="center"
                                                                 gap="0"
+                                                                transition="color 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)"
+                                                                color={prefix === "K" ? "blue.600" : "orange.500"}
+                                                                _dark={{
+                                                                        color: prefix === "K" ? "blue.400" : "orange.400",
+                                                                }}
                                                         >
                                                                 <Box
                                                                         as="span"
                                                                         display="inline-flex"
                                                                         alignItems="center"
                                                                         justifyContent="center"
-                                                                        width="1.2em"
+                                                                        width="auto"
                                                                         height="1.2em"
                                                                         transition="all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)"
                                                                         transform={prefix === "K" ? "rotate(0deg) scale(1)" : "rotate(360deg) scale(1.1)"}
                                                                         textShadow={prefix === "K" ? "0 0 10px rgba(59, 130, 246, 0.3)" : "0 0 10px rgba(249, 115, 22, 0.3)"}
-                                                                        color={prefix === "K" ? "blue.600" : "orange.500"}
-                                                                        _dark={{
-                                                                                color: prefix === "K" ? "blue.400" : "orange.400",
-                                                                                textShadow: prefix === "K" ? "0 0 15px rgba(96, 165, 250, 0.4)" : "0 0 15px rgba(251, 146, 60, 0.4)"
-                                                                        }}
                                                                 >
                                                                         {prefix}
                                                                 </Box>
-                                                                RC Race Calendar
+                                                                <Box
+                                                                        as="span"
+                                                                        transition="text-shadow 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)"
+                                                                        textShadow={prefix === "K" ? "0 0 10px rgba(59, 130, 246, 0.1)" : "0 0 10px rgba(249, 115, 22, 0.1)"}
+                                                                >
+                                                                        RC Race Calendar
+                                                                </Box>
                                                         </Heading>
                                                         <div
                                                                 style={{
