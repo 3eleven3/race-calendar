@@ -135,16 +135,42 @@ export const EventInfo: FC<{
                                                 </Wrap>
                                         </DataList.ItemValue>
                                 </DataList.Item>
+                                <DataList.Item>
+                                        <DataList.ItemLabel
+                                                fontSize={
+                                                        state.isMobile
+                                                                ? "xs"
+                                                                : "sm"
+                                                }
+                                                color={{ base: "gray.800", _dark: "gray.200" }}
+                                                fontWeight="bold"
+                                        >
+                                                Website
+                                        </DataList.ItemLabel>
+                                        <DataList.ItemValue
+                                                fontSize={
+                                                        state.isMobile
+                                                                ? "xs"
+                                                                : "sm"
+                                                }
+                                        >
+                                                <Button
+                                                        asChild
+                                                        variant="link"
+                                                        size="sm"
+                                                        colorPalette="blue"
+                                                        fontWeight="normal"
+                                                        justifyContent="start"
+                                                        height="auto"
+                                                        p={0}
+                                                >
+                                                        <a href={props.event.url} target="_blank" rel="noreferrer">
+                                                                {props.event.url.replace(/^https?:\/\/(www\.)?/, "").split("/")[0]}
+                                                        </a>
+                                                </Button>
+                                        </DataList.ItemValue>
+                                </DataList.Item>
                         </DataList.Root>
-                        <Button
-                                asChild
-                                variant="ghost"
-                                size={state.isMobile ? "sm" : "md"}
-                        >
-                                <a href={props.event.url} target="_blank">
-                                        More information
-                                </a>
-                        </Button>
                 </VStack>
         );
 };
