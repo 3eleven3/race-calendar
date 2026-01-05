@@ -1,14 +1,25 @@
 import { FC } from "react";
 import type { Event } from "@/events";
-import { Button, VStack, DataList, Wrap, Heading } from "@chakra-ui/react";
+import { Button, VStack, DataList, Wrap, Heading, Text, Badge } from "@chakra-ui/react";
 import { useAppState } from "../state";
 import { ColoredBadge } from "./colored-badge";
+
+const getDaysUntil = (date: Date) => {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const raceDate = new Date(date);
+        raceDate.setHours(0, 0, 0, 0);
+        const diffTime = raceDate.getTime() - today.getTime();
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        return diffDays;
+};
 
 export const EventInfo: FC<{
         event: Event;
         showTitle: boolean;
 }> = (props) => {
         const { state } = useAppState();
+        const daysUntil = getDaysUntil(props.event.date);
 
         return (
                 <VStack
@@ -16,11 +27,26 @@ export const EventInfo: FC<{
                         alignItems={"start"}
                         paddingBlockStart={state.isMobile ? "0.5rem" : "1rem"}
                 >
-                        {props.showTitle && (
-                                <Heading size={state.isMobile ? "md" : "lg"}>
-                                        {props.event.name}
-                                </Heading>
-                        )}
+                        <VStack align="start" gap={1}>
+                                {props.showTitle && (
+                                        <Heading size={state.isMobile ? "md" : "lg"}>
+                                                {props.event.name}
+                                        </Heading>
+                                )}
+                                {daysUntil >= 0 ? (
+                                        <Badge 
+                                                colorPalette={daysUntil <= 7 ? "red" : daysUntil <= 30 ? "orange" : "green"}
+                                                variant="subtle"
+                                                size="sm"
+                                        >
+                                                {daysUntil === 0 ? "Today!" : daysUntil === 1 ? "Tomorrow!" : `${daysUntil} days away`}
+                                        </Badge>
+                                ) : (
+                                        <Badge colorPalette="gray" variant="subtle" size="sm">
+                                                Past Event
+                                        </Badge>
+                                )}
+                        </VStack>
                         <DataList.Root
                                 orientation={
                                         state.isMobile
