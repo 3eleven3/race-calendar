@@ -54,11 +54,12 @@ export const App = () => {
                                                                         display="inline-flex"
                                                                         alignItems="center"
                                                                         justifyContent="center"
-                                                                        width="auto"
+                                                                        width="0.8em"
                                                                         height="1.2em"
                                                                         transition="all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)"
-                                                                        transform={prefix === "K" ? "rotate(0deg) scale(1)" : "rotate(360deg) scale(1.1)"}
+                                                                        transform={prefix === "K" ? "rotate(0deg) scale(1)" : "rotate(360deg) scale(1)"}
                                                                         textShadow={prefix === "K" ? "0 0 10px rgba(59, 130, 246, 0.3)" : "0 0 10px rgba(249, 115, 22, 0.3)"}
+                                                                        marginRight={prefix === "K" ? "0" : "0.1em"}
                                                                 >
                                                                         {prefix}
                                                                 </Box>
