@@ -69,7 +69,7 @@ const events: Event[] = [
 		type: "road" as const,
 		distances: ["swim 15 minutes, bike 20 minutes, run 20 minutes"],
 		url: "https://www.trisignup.com/Race/NY/Kingston/IndoorTriathlonYMCA",
-		going: ["Kelly F"],
+		going: ["Kelly F", "Rebecca K", "Rosibel L", "Steve S"],
 	},
 	{
 		name: "Blue Duck Dash - Dan Mawhinney Memorial Winter Series",
