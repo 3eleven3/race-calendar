@@ -22,16 +22,53 @@ export const App = () => {
                                                 textAlign="center"
                                                 p={{ base: 4, md: 8 }}
                                                 border="1px solid"
-                                                borderColor={{ base: "gray.200", _dark: "whiteAlpha.200" }}
+                                                borderColor={{ base: "whiteAlpha.400", _dark: "whiteAlpha.200" }}
                                                 borderRadius="2xl"
-                                                bg={{ base: "white", _dark: "gray.900" }}
+                                                bg={{ 
+                                                        base: "rgba(255, 255, 255, 0.7)", 
+                                                        _dark: "rgba(15, 23, 42, 0.7)" 
+                                                }}
                                                 shadow="xl"
                                                 style={{
                                                         position: "relative",
+                                                        backdropFilter: "blur(10px)",
+                                                        overflow: "hidden"
                                                 }}
                                         >
-                                                <VStack gap={{ base: 4, md: 6 }} align="stretch">
-                                                        <Heading size={{ base: "xl", md: "3xl" }} letterSpacing="tight">
+                                                <Box
+                                                        position="absolute"
+                                                        top="-50%"
+                                                        left="-50%"
+                                                        w="200%"
+                                                        h="200%"
+                                                        bgGradient="radial(circle, blue.100 0%, transparent 70%)"
+                                                        opacity="0.4"
+                                                        animation="pulse 8s ease-in-out infinite"
+                                                        pointerEvents="none"
+                                                        _dark={{
+                                                                bgGradient: "radial(circle, blue.900 0%, transparent 70%)",
+                                                                opacity: "0.2"
+                                                        }}
+                                                        style={{
+                                                                "@keyframes pulse": {
+                                                                        "0%, 100%": { transform: "translate(0, 0) scale(1)" },
+                                                                        "50%": { transform: "translate(5%, 5%) scale(1.1)" }
+                                                                }
+                                                        }}
+                                                />
+                                                <VStack gap={{ base: 4, md: 6 }} align="stretch" position="relative" zIndex={1}>
+                                                        <Heading 
+                                                                size={{ base: "xl", md: "3xl" }} 
+                                                                letterSpacing="tight"
+                                                                bgGradient="to-r"
+                                                                gradientFrom="blue.600"
+                                                                gradientTo="indigo.500"
+                                                                bgClip="text"
+                                                                _dark={{
+                                                                        gradientFrom: "blue.300",
+                                                                        gradientTo: "indigo.300",
+                                                                }}
+                                                        >
                                                                 KRC/ORC Race Calendar
                                                         </Heading>
                                                         <div
