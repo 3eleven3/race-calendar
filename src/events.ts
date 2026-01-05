@@ -12,7 +12,7 @@ export type Event = {
 const today = new Date();
 today.setHours(0, 0, 0, 0);
 
-const events: Event[] = ([
+const events: Event[] = [
 	{
 		name: "Wild Goose",
 		date: new Date("2026-9-19"),
@@ -60,7 +60,8 @@ const events: Event[] = ([
 		distances: ["half marathon", "10 km", "10K Ruck"],
 		url: "https://www.sassquadtrailrunning.com/bigbearsquatchnorth",
 		going: ["Cam W"],
-	},{
+	},
+	{
 		name: "YMCA Indoor Triathlon",
 		date: new Date("2026-3-8"),
 		state: "NY",
@@ -69,9 +70,51 @@ const events: Event[] = ([
 		distances: ["swim 15 minutes, bike 20 minutes, run 20 minutes"],
 		url: "https://www.trisignup.com/Race/NY/Kingston/IndoorTriathlonYMCA",
 		going: ["Kelly F"],
-	}
+	},
+	{
+		name: "Blue Duck Dash - Dan Mawhinney Memorial Winter Series",
+		date: new Date("2026-1-25"),
+		state: "NY",
+		city: "Kingston",
+		type: "road" as const,
+		distances: ["3.5 miles"],
+		url: "https://www.zippy-reg.com/online_reg/index.php?e=2381",
+		going: ["Kelly F", "Cam W", "Allison D", "Emma C", "Amanda S"],
+	},
+	{
+		name: "The Keegan Kruiser - Dan Mawhinney Memorial Winter Series",
+		date: new Date("2026-2-01"),
+		state: "NY",
+		city: "Kingston",
+		type: "road" as const,
+		distances: ["4.1 miles"],
+		url: "https://www.zippy-reg.com/online_reg/index.php?e=2381",
+		going: ["Kelly F", "Cam W", "Allison D", "Emma C", "Amanda S"],
+	},
+	{
+		name: "The Westkill Krusher - Dan Mawhinney Memorial Winter Series",
+		date: new Date("2026-2-08"),
+		state: "NY",
+		city: "Westkill",
+		type: "road" as const,
+		distances: ["3.4 miles"],
+		url: "https://www.zippy-reg.com/online_reg/index.php?e=2381",
+		going: ["Kelly F", "Cam W", "Allison D", "Emma C", "Amanda S"],
+	},
+	{
+		name: "The Union Street Stroll - Dan Mawhinney Memorial Winter Series",
+		date: new Date("2026-2-15"),
+		state: "NY",
+		city: "Kingston",
+		type: "road" as const,
+		distances: ["3 miles"],
+		url: "https://www.zippy-reg.com/online_reg/index.php?e=2381",
+		going: ["Kelly F", "Cam W", "Allison D", "Emma C", "Amanda S"],
+	},
+
+	// Week 5: 2/22-3/1 - The Hour of Pain (Run as many miles as you can in an hour) No map, JUST RUN!
 	// remove events that are in the past
-]).filter((event) => event.date >= today);
+].filter((event) => event.date >= today);
 
 // sort events by date
 events.sort((a, b) => a.date.getTime() - b.date.getTime());
