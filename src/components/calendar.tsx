@@ -124,30 +124,30 @@ export const Calendar: FC = () => {
         }
 
         return (
-                <VStack gap={6} align="stretch">
+                <VStack gap={{ base: 4, md: 6 }} align="stretch">
                         <Box>
-                                <HStack justify="center" mb={4}>
+                                <HStack justify="center" mb={{ base: 2, md: 4 }}>
                                         <IconButton
                                                 aria-label="Previous month"
                                                 onClick={handlePreviousMonth}
                                                 variant="ghost"
-                                                size="md"
+                                                size={{ base: "sm", md: "md" }}
                                         >
                                                 <LuChevronLeft />
                                         </IconButton>
-                                        <Button size="sm" variant="outline" onClick={handleToday} mx={2}>
+                                        <Button size="xs" variant="outline" onClick={handleToday} mx={2}>
                                                 Today
                                         </Button>
                                         <IconButton
                                                 aria-label="Next month"
                                                 onClick={handleNextMonth}
                                                 variant="ghost"
-                                                size="md"
+                                                size={{ base: "sm", md: "md" }}
                                         >
                                                 <LuChevronRight />
                                         </IconButton>
                                 </HStack>
-                                <Heading size="md" letterSpacing="tight" textAlign="center" mb={4}>
+                                <Heading size={{ base: "sm", md: "md" }} letterSpacing="tight" textAlign="center" mb={{ base: 2, md: 4 }}>
                                         {monthName}
                                 </Heading>
                                 <Separator opacity={0.5} />
