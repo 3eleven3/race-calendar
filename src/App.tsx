@@ -2,9 +2,18 @@ import { Container, Box, Heading, VStack } from "@chakra-ui/react";
 import { useAppState } from "./state";
 import { ColorModeButton } from "./components/ui/color-mode";
 import { List } from "./components/list";
+import { useState, useEffect } from "react";
 
 export const App = () => {
         const { state } = useAppState();
+        const [prefix, setPrefix] = useState("K");
+
+        useEffect(() => {
+                const interval = setInterval(() => {
+                        setPrefix((prev) => (prev === "K" ? "O" : "K"));
+                }, 3000);
+                return () => clearInterval(interval);
+        }, []);
 
         return (
                 <Box
@@ -27,13 +36,35 @@ export const App = () => {
                                                 position="relative"
                                         >
                                                 <VStack gap={{ base: 4, md: 6 }} align="stretch">
-                                                        <Heading 
-                                                                size={{ base: "xl", md: "3xl" }} 
+                                                        <Heading
+                                                                size={{ base: "xl", md: "3xl" }}
                                                                 letterSpacing="tight"
                                                                 color="gray.800"
                                                                 _dark={{ color: "whiteAlpha.900" }}
+                                                                display="flex"
+                                                                justifyContent="center"
+                                                                alignItems="center"
+                                                                gap="0"
                                                         >
-                                                                KRC/ORC Race Calendar
+                                                                <Box
+                                                                        as="span"
+                                                                        display="inline-flex"
+                                                                        alignItems="center"
+                                                                        justifyContent="center"
+                                                                        width="1.2em"
+                                                                        height="1.2em"
+                                                                        transition="all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)"
+                                                                        transform={prefix === "K" ? "rotate(0deg) scale(1)" : "rotate(360deg) scale(1.1)"}
+                                                                        textShadow={prefix === "K" ? "0 0 10px rgba(59, 130, 246, 0.3)" : "0 0 10px rgba(249, 115, 22, 0.3)"}
+                                                                        color={prefix === "K" ? "blue.600" : "orange.500"}
+                                                                        _dark={{
+                                                                                color: prefix === "K" ? "blue.400" : "orange.400",
+                                                                                textShadow: prefix === "K" ? "0 0 15px rgba(96, 165, 250, 0.4)" : "0 0 15px rgba(251, 146, 60, 0.4)"
+                                                                        }}
+                                                                >
+                                                                        {prefix}
+                                                                </Box>
+                                                                RC Race Calendar
                                                         </Heading>
                                                         <div
                                                                 style={{
