@@ -60,8 +60,8 @@ export const App = () => {
                                                         <Heading 
                                                                 size={{ base: "xl", md: "3xl" }} 
                                                                 letterSpacing="tight"
-                                                                color="blue.600"
-                                                                _dark={{ color: "blue.300" }}
+                                                                color="gray.800"
+                                                                _dark={{ color: "whiteAlpha.900" }}
                                                         >
                                                                 KRC/ORC Race Calendar
                                                         </Heading>
