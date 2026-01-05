@@ -35,10 +35,10 @@ export const List: FC = () => {
                                                                 </Timeline.Title>
                                                         </Timeline.Content>
                                                 )}
-                                                <Timeline.Connector>
+                                                <Timeline.Connector borderColor={{ base: "gray.200", _dark: "whiteAlpha.300" }}>
                                                         <Timeline.Separator />
-                                                        <Timeline.Indicator>
-                                                                <Icon fontSize="md">
+                                                        <Timeline.Indicator bg={{ base: "white", _dark: "gray.800" }} borderColor={{ base: "gray.200", _dark: "whiteAlpha.300" }}>
+                                                                <Icon fontSize="md" color={{ base: "gray.600", _dark: "gray.400" }}>
                                                                         {event.type ===
                                                                         "road" ? (
                                                                                 <TbRoad />
@@ -83,7 +83,7 @@ export const List: FC = () => {
                                                 </Timeline.Content>
                                         </Timeline.Item>
                                         {index !== state.events.length - 1 && (
-                                                <Timeline.Connector />
+                                                <Timeline.Connector borderColor={{ base: "gray.200", _dark: "whiteAlpha.300" }} />
                                         )}
                                 </Fragment>
                         ))}
