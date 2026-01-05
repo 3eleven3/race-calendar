@@ -1,9 +1,7 @@
-import { Container, Box, Heading, VStack, Flex } from "@chakra-ui/react";
+import { Container, Box, Heading, VStack } from "@chakra-ui/react";
 import { useAppState } from "./state";
 import { ColorModeButton } from "./components/ui/color-mode";
-import { Calendar } from "./components/calendar";
 import { List } from "./components/list";
-import { ViewButton } from "./components/view-button";
 
 export const App = () => {
         const { state } = useAppState();
@@ -46,7 +44,6 @@ export const App = () => {
                                                         >
                                                                 <ColorModeButton />
                                                         </div>
-                                                        <ViewButton />
                                                 </VStack>
                                         </Box>
                                         <Box
@@ -57,8 +54,7 @@ export const App = () => {
                                                 bg={{ base: "whiteAlpha.950", _dark: "gray.900" }}
                                                 shadow="xl"
                                         >
-                                                {state.view === "calendar" && <Calendar />}
-                                                {state.view === "list" && <List />}
+                                                <List />
                                         </Box>
                                 </VStack>
                         </Container>

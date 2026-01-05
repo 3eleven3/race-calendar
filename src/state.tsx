@@ -4,33 +4,33 @@ import { type Updater, useImmer } from "use-immer";
 import { events } from "./events";
 import { useMediaQuery } from "usehooks-ts";
 
-const defaultState: AppState = { view: "list", events, isMobile: false };
+const defaultState: AppState = { events, isMobile: false };
 
 const AppContext = createContext<{
-	state: AppState;
-	setState: Updater<AppState>;
+        state: AppState;
+        setState: Updater<AppState>;
 }>({
-	state: defaultState,
-	// eslint-disable-next-line @typescript-eslint/no-empty-function
-	setState: () => {},
+        state: defaultState,
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        setState: () => {},
 });
 
 export const AppProvider: FCWithChildren = (props) => {
-	const [state, setState] = useImmer<AppState>(defaultState);
+        const [state, setState] = useImmer<AppState>(defaultState);
 
-	const isMobile = useMediaQuery("(max-width: 768px)");
+        const isMobile = useMediaQuery("(max-width: 768px)");
 
-	useEffect(() => {
-		setState((draft) => {
-			draft.isMobile = isMobile;
-		});
-	}, [isMobile, setState]);
+        useEffect(() => {
+                setState((draft) => {
+                        draft.isMobile = isMobile;
+                });
+        }, [isMobile, setState]);
 
-	return (
-		<AppContext.Provider value={{ state, setState }}>
-			{props.children}
-		</AppContext.Provider>
-	);
+        return (
+                <AppContext.Provider value={{ state, setState }}>
+                        {props.children}
+                </AppContext.Provider>
+        );
 };
 
 export const useAppState = () => useContext(AppContext);
