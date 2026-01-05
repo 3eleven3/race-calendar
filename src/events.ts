@@ -47,10 +47,29 @@ const events: Event[] = ([
 		state: "VA",
 		city: "Richmond",
 		type: "road" as const,
-		distances: ["26.2 miles"],
+		distances: ["half marathon", "marathon"],
 		url: "https://www.richmondmarathon.com/",
 		going: ["Kelly F", "Allison D"],
 	},
+	{
+		name: "Big Bear Squatch North",
+		date: new Date("2026-4-4"),
+		state: "NY",
+		city: "Bear Mountain",
+		type: "trail" as const,
+		distances: ["half marathon", "10 km", "10K Ruck"],
+		url: "https://www.sassquadtrailrunning.com/bigbearsquatchnorth",
+		going: ["Cam W"],
+	},{
+		name: "YMCA Indoor Triathlon",
+		date: new Date("2026-3-8"),
+		state: "NY",
+		city: "Kingston",
+		type: "road" as const,
+		distances: ["swim 15 minutes, bike 20 minutes, run 20 minutes"],
+		url: "https://www.trisignup.com/Race/NY/Kingston/IndoorTriathlonYMCA",
+		going: ["Kelly F"],
+	}
 	// remove events that are in the past
 ]).filter((event) => event.date >= today);
 
