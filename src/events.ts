@@ -29,7 +29,7 @@ const events: Event[] = [
 			"10 km",
 		],
 		url: "https://www.sassquadtrailrunning.com/wildgoose",
-		going: ["Kelly F", "Cam W"],
+		going: ["Kelly F", "Cam W", "Anna W", "Samson C"],
 	},
 	{
 		name: "Squatchywaska",
@@ -111,8 +111,46 @@ const events: Event[] = [
 		url: "https://www.zippy-reg.com/online_reg/index.php?e=2381",
 		going: ["Kelly F", "Cam W", "Allison D", "Emma C", "Amanda S"],
 	},
-
-	// Week 5: 2/22-3/1 - The Hour of Pain (Run as many miles as you can in an hour) No map, JUST RUN!
+	{
+		name: "Helderberg to Hudson",
+		date: new Date("2026-4-11"),
+		state: "NY",
+		city: "Slingerlands",
+		type: "road" as const,
+		distances: ["half marathon"],
+		url: "https://www.areeventproductions.com/events/areep/h2h/index-main.php",
+		going: ["Todd R"],
+	},
+	{
+		name: "Philidelphia Marathon",
+		date: new Date("2026-11-22"),
+		state: "PA",
+		city: "Philadelphia",
+		type: "road" as const,
+		distances: ["marathon"],
+		url: "https://www.philadelphiamarathon.com",
+		going: ["Todd R"],
+	},
+	{
+		name: "Manitou's Revenge",
+		date: new Date("2026-6-20"),
+		state: "NY",
+		city: "Catskills",
+		type: "trail" as const,
+		distances: ["53 miles"],
+		url: "https://www.manitousrevengeultra.com/",
+		going: ["Samson C", "Anna W"],
+	},
+	{
+		name: "Hyner Trail Challenge",
+		date: new Date("2026-4-18"),
+		state: "PA",
+		city: "Hyner",
+		type: "trail" as const,
+		distances: ["50 km", "25 km"],
+		url: "https://www.patraildogs.com/hyner",
+		going: ["Samson C (waitlist)", "Anna W (waitlist)"],
+	},
 	// remove events that are in the past
 ].filter((event) => event.date >= today);
 
