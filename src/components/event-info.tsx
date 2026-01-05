@@ -7,6 +7,7 @@ import {
 	Wrap,
 	Heading,
 	Badge,
+	Link,
 } from "@chakra-ui/react";
 import { useAppState } from "../state";
 import { ColoredBadge } from "./colored-badge";
@@ -132,30 +133,19 @@ export const EventInfo: FC<{
 						Website
 					</DataList.ItemLabel>
 					<DataList.ItemValue fontSize={state.isMobile ? "xs" : "sm"}>
-						<Button
-							asChild
-							size="sm"
-							colorPalette="blue"
-							fontWeight="semibold"
-							textDecoration="underline"
-							textDecorationThickness="2px"
-							textUnderlineOffset="2px"
-							justifyContent="start"
-							height="auto"
-							p={0}
-							_hover={{
-								color: "blue.600",
-								textDecorationThickness: "3px",
-							}}
+						<Link
+							href={props.event.url}
+							color="blue.500"
+							_hover={{ textDecoration: "underline" }}
+							target="_blank"
+							rel="noopener noreferrer"
 						>
-							<a href={props.event.url} target="_blank" rel="noreferrer">
-								{
-									props.event.url
-										.replace(/^https?:\/\/(www\.)?/, "")
-										.split("/")[0]
-								}
-							</a>
-						</Button>
+							{
+								props.event.url
+									.replace(/^https?:\/\/(www\.)?/, "")
+									.split("/")[0]
+							}
+						</Link>
 					</DataList.ItemValue>
 				</DataList.Item>
 			</DataList.Root>
