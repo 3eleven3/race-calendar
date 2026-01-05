@@ -60,14 +60,8 @@ export const App = () => {
                                                         <Heading 
                                                                 size={{ base: "xl", md: "3xl" }} 
                                                                 letterSpacing="tight"
-                                                                bgGradient="to-r"
-                                                                gradientFrom="blue.600"
-                                                                gradientTo="indigo.500"
-                                                                bgClip="text"
-                                                                _dark={{
-                                                                        gradientFrom: "blue.300",
-                                                                        gradientTo: "indigo.300",
-                                                                }}
+                                                                color="blue.600"
+                                                                _dark={{ color: "blue.300" }}
                                                         >
                                                                 KRC/ORC Race Calendar
                                                         </Heading>
