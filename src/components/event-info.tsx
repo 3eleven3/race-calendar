@@ -159,10 +159,17 @@ export const EventInfo: FC<{
                                                         variant="link"
                                                         size="sm"
                                                         colorPalette="blue"
-                                                        fontWeight="normal"
+                                                        fontWeight="semibold"
+                                                        textDecoration="underline"
+                                                        textDecorationThickness="2px"
+                                                        textUnderlineOffset="2px"
                                                         justifyContent="start"
                                                         height="auto"
                                                         p={0}
+                                                        _hover={{
+                                                                color: "blue.600",
+                                                                textDecorationThickness: "3px"
+                                                        }}
                                                 >
                                                         <a href={props.event.url} target="_blank" rel="noreferrer">
                                                                 {props.event.url.replace(/^https?:\/\/(www\.)?/, "").split("/")[0]}
