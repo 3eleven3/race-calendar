@@ -119,7 +119,7 @@ const events: Event[] = [
 		type: "road" as const,
 		distances: ["half marathon"],
 		url: "https://www.areeventproductions.com/events/areep/h2h/index-main.php",
-		going: ["Todd R"],
+		going: ["Todd R", "Allison D", "Kelly F"],
 	},
 	{
 		name: "Philidelphia Marathon",

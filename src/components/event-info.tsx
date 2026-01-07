@@ -1,14 +1,6 @@
 import type { FC } from "react";
 import type { Event } from "@/events";
-import {
-	Button,
-	VStack,
-	DataList,
-	Wrap,
-	Heading,
-	Badge,
-	Link,
-} from "@chakra-ui/react";
+import { VStack, DataList, Wrap, Heading, Badge, Link } from "@chakra-ui/react";
 import { useAppState } from "../state";
 import { ColoredBadge } from "./colored-badge";
 
