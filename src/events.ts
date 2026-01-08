@@ -79,7 +79,7 @@ const events: Event[] = [
 		type: "road" as const,
 		distances: ["3.5 miles"],
 		url: "https://www.zippy-reg.com/online_reg/index.php?e=2381",
-		going: ["Kelly F", "Cam W", "Allison D", "Emma C", "Amanda S"],
+		going: ["Kelly F", "Cam W", "Allison D", "Emma C", "Amanda S", "Todd R"],
 	},
 	{
 		name: "The Keegan Kruiser - Dan Mawhinney Memorial Winter Series",
@@ -89,7 +89,7 @@ const events: Event[] = [
 		type: "road" as const,
 		distances: ["4.1 miles"],
 		url: "https://www.zippy-reg.com/online_reg/index.php?e=2381",
-		going: ["Kelly F", "Cam W", "Allison D", "Emma C", "Amanda S"],
+		going: ["Kelly F", "Cam W", "Allison D", "Emma C", "Amanda S", "Todd R"],
 	},
 	{
 		name: "The Westkill Krusher - Dan Mawhinney Memorial Winter Series",
@@ -99,7 +99,7 @@ const events: Event[] = [
 		type: "road" as const,
 		distances: ["3.4 miles"],
 		url: "https://www.zippy-reg.com/online_reg/index.php?e=2381",
-		going: ["Kelly F", "Cam W", "Allison D", "Emma C", "Amanda S"],
+		going: ["Kelly F", "Cam W", "Allison D", "Emma C", "Amanda S", "Todd R"],
 	},
 	{
 		name: "The Union Street Stroll - Dan Mawhinney Memorial Winter Series",
@@ -109,7 +109,7 @@ const events: Event[] = [
 		type: "road" as const,
 		distances: ["3 miles"],
 		url: "https://www.zippy-reg.com/online_reg/index.php?e=2381",
-		going: ["Kelly F", "Cam W", "Allison D", "Emma C", "Amanda S"],
+		going: ["Kelly F", "Cam W", "Allison D", "Emma C", "Amanda S", "Todd R"],
 	},
 	{
 		name: "Helderberg to Hudson",
@@ -162,6 +162,16 @@ const events: Event[] = [
 		going: ["Cam W", "Emma C"],
 	},
 	{
+		name: "Rock The Ridge",
+		date: new Date("2026-5-2"),
+		state: "NY",
+		city: "New Paltz",
+		type: "trail" as const,
+		distances: ["marathon", "50 mile"],
+		url: "https://charity.pledgeit.org/rocktheridge",
+		going: ["Todd R"],
+	},
+	{
 		name: "Dirty German Endurance Fest",
 		date: new Date("2026-5-9"),
 		state: "PA",
@@ -170,6 +180,16 @@ const events: Event[] = [
 		distances: ["50 miles", "50 km", "25 km"],
 		url: "https://ultrasignup.com/register.aspx?did=128698",
 		going: ["Cam W", "Emma C"],
+	},
+	{
+		name: "Annual 5K Run & Walk With The Dogs",
+		date: new Date("2026-5-17"),
+		state: "NY",
+		city: "Beacon",
+		type: "road" as const,
+		distances: ["5K (dog assisted)"],
+		url: "https://runsignup.com/Race/NY/Beacon/ARF5K",
+		going: ["Brain K"],
 	},
 	// remove events that are in the past
 ].filter((event) => event.date >= today);
