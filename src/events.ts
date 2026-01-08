@@ -59,7 +59,7 @@ const events: Event[] = [
 		type: "trail" as const,
 		distances: ["half marathon", "10 km", "10K Ruck"],
 		url: "https://www.sassquadtrailrunning.com/bigbearsquatchnorth",
-		going: ["Cam W"],
+		going: ["Cam W", "Emma C"],
 	},
 	{
 		name: "YMCA Indoor Triathlon",
@@ -150,6 +150,26 @@ const events: Event[] = [
 		distances: ["50 km", "25 km"],
 		url: "https://www.patraildogs.com/hyner",
 		going: ["Samson C (waitlist)", "Anna W (waitlist)"],
+	},
+	{
+		name: "English's Ridge Rumble",
+		date: new Date("2026-4-18"),
+		state: "NY",
+		city: "Fayetteville",
+		type: "trail" as const,
+		distances: ["50 km", "20 mile", "10 mile"],
+		url: "https://ultrasignup.com/register.aspx?did=127814",
+		going: ["Cam W", "Emma C"],
+	},
+	{
+		name: "Dirty German Endurance Fest",
+		date: new Date("2026-5-9"),
+		state: "PA",
+		city: "Philadelphia",
+		type: "trail" as const,
+		distances: ["50 miles", "50 km", "25 km"],
+		url: "https://ultrasignup.com/register.aspx?did=128698",
+		going: ["Cam W", "Emma C"],
 	},
 	// remove events that are in the past
 ].filter((event) => event.date >= today);
