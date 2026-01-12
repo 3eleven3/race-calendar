@@ -3,7 +3,7 @@ export type Event = {
 	date: Date;
 	state: string;
 	city: string;
-	type: "road" | "trail";
+	type: "road" | "trail" | "other";
 	distances: string[];
 	url: string;
 	going: string[];
@@ -70,6 +70,16 @@ const events: Event[] = [
 		distances: ["swim 15 minutes, bike 20 minutes, run 20 minutes"],
 		url: "https://www.trisignup.com/Race/NY/Kingston/IndoorTriathlonYMCA",
 		going: ["Kelly F", "Rebecca K", "Rosibel L", "Steve S"],
+	},
+	{
+		name: "Jolly January - Club meet up",
+		date: new Date("2026-1-18"),
+		state: "",
+		city: "Union St Brewing Company",
+		type: "road" as const,
+		distances: ["3pm"],
+		url: "https://www.facebook.com/events/2138286426981443/",
+		going: ["everyone"],
 	},
 	{
 		name: "Blue Duck Dash - Dan Mawhinney Memorial Winter Series",
