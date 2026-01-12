@@ -74,7 +74,7 @@ const events: Event[] = [
 	{
 		name: "Jolly January - Club meet up",
 		date: new Date("2026-1-18"),
-		state: "",
+		state: "Kingston NY",
 		city: "Union St Brewing Company",
 		type: "road" as const,
 		distances: ["3pm"],
