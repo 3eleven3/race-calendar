@@ -201,6 +201,16 @@ const events: Event[] = [
 		url: "https://runsignup.com/Race/NY/Beacon/ARF5K",
 		going: ["Brain K"],
 	},
+	{
+		name: "Amanda's birthday 37 mile challenge",
+		date: new Date("2026-3-21"),
+		state: "NY",
+		city: "Kingston",
+		type: "road" as const,
+		distances: ["10x 3.7 miles"],
+		url: "https://3eleven3.github.io/race-calendar",
+		going: ["Amanda S", "Cam W", "Emma C", "Kelly F"],
+	},
 	// remove events that are in the past
 ].filter((event) => event.date >= today);
 
