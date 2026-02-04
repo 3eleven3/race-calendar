@@ -203,12 +203,12 @@ const events: Event[] = [
 	},
 	{
 		name: "Amanda's birthday 37 mile challenge",
-		date: new Date("2026-3-21"),
+		date: new Date("2026-3-14"),
 		state: "NY",
 		city: "Kingston",
 		type: "road" as const,
 		distances: ["10x 3.7 miles"],
-		url: "https://3eleven3.github.io/race-calendar",
+		url: "https://3eleven3.github.io/amanda-run",
 		going: ["Amanda S", "Cam W", "Emma C", "Kelly F"],
 	},
 	// remove events that are in the past
