@@ -182,16 +182,6 @@ const events: Event[] = [
 		going: ["Todd R"],
 	},
 	{
-		name: "Dirty German Endurance Fest",
-		date: new Date("2026-5-9"),
-		state: "PA",
-		city: "Philadelphia",
-		type: "trail" as const,
-		distances: ["50 miles", "50 km", "25 km"],
-		url: "https://ultrasignup.com/register.aspx?did=128698",
-		going: ["Cam W", "Emma C"],
-	},
-	{
 		name: "Annual 5K Run & Walk With The Dogs",
 		date: new Date("2026-5-17"),
 		state: "NY",
