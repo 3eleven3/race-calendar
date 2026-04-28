@@ -189,7 +189,7 @@ const events: Event[] = [
 		type: "road" as const,
 		distances: ["5K (dog assisted)"],
 		url: "https://runsignup.com/Race/NY/Beacon/ARF5K",
-		going: ["Brain K"],
+		going: ["Brian K"],
 	},
 	{
 		name: "Amanda's birthday 37 mile challenge",
@@ -200,6 +200,16 @@ const events: Event[] = [
 		distances: ["10x 3.7 miles"],
 		url: "https://3eleven3.github.io/amanda-run",
 		going: ["Amanda S", "Cam W", "Emma C", "Kelly F"],
+	},
+	{
+		name: "Brian's 3 + 2 Birthday ice cream challenge",
+		date: new Date("2026-7-25"),
+		state: "NY",
+		city: "Kingston",
+		type: "road" as const,
+		distances: ["6 miles & 3+2 scoops of ice cream/soft serve"],
+		url: "",
+		going: ["Brian K"],
 	},
 	// remove events that are in the past
 ].filter((event) => event.date >= today);
