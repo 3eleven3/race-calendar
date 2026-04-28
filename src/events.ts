@@ -189,7 +189,7 @@ const events: Event[] = [
 		type: "road" as const,
 		distances: ["5K (dog assisted)"],
 		url: "https://runsignup.com/Race/NY/Beacon/ARF5K",
-		going: ["Brian K"],
+		going: ["Brian K", "Annie K"],
 	},
 	{
 		name: "Amanda's birthday 37 mile challenge",
