@@ -201,6 +201,16 @@ const events: Event[] = [
 		url: "https://3eleven3.github.io/amanda-run",
 		going: ["Amanda S", "Cam W", "Emma C", "Kelly F"],
 	},
+	{
+		name: "Brian's Birthday 3+2 Ice Cream Run Extravaganza",
+		date: new Date("2026-7-25"),
+		state: "NY",
+		city: "Kingston",
+		type: "road" as const,
+		distances: ["6.5 miles", "3+2 ice creams"],
+		url: "https://mickeysigloo.square.site",
+		going: ["Brian"],
+	},
 	// remove events that are in the past
 ].filter((event) => event.date >= today);
 
