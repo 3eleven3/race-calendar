@@ -202,13 +202,13 @@ const events: Event[] = [
 		going: ["Amanda S", "Cam W", "Emma C", "Kelly F"],
 	},
 	{
-		name: "Brian's 3 + 2 Birthday ice cream challenge",
+	  name: "Brian's Birthday 3+2 Ice Cream Run Extravaganza",
 		date: new Date("2026-7-25"),
 		state: "NY",
 		city: "Kingston",
 		type: "road" as const,
-		distances: ["6 miles & 3+2 scoops of ice cream/soft serve"],
-		url: "",
+		distances: ["6.5 miles", "3+2 ice creams"],
+		url: "https://mickeysigloo.square.site",
 		going: ["Brian K"],
 	},
 	// remove events that are in the past
