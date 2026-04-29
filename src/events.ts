@@ -208,7 +208,7 @@ const events: Event[] = [
 		city: "Kingston",
 		type: "road" as const,
 		distances: ["6.5 miles", "3+2 ice creams"],
-		url: "https://mickeysigloo.square.site",
+		url: "https://bkrainer.github.io/ice-cream-run/",
 		going: ["Brian K"],
 	},
 	// remove events that are in the past
