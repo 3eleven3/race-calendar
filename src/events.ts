@@ -139,7 +139,7 @@ const events: Event[] = [
 		type: "road" as const,
 		distances: ["marathon"],
 		url: "https://www.philadelphiamarathon.com",
-		going: ["Todd R"],
+		going: ["Todd R", "Kate A"],
 	},
 	{
 		name: "Manitou's Revenge",
